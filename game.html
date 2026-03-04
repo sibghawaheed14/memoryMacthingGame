@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Memory Matching Game</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+       body {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+#gameHeader {
+    margin-bottom: 20px;
+}
+
+#gameHeader h2 {
+    color: #333;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 2px #aaa;
+}
+
+#gameHeader p {
+    font-size: 18px;
+    color: #555;
+    margin: 5px 0;
+}
+
+#gameBoard {
+    width: 420px;  
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border: solid 2px black;
+    border-radius: 10px;
+}
+
+.card {
+    width: 80px;
+    height: 80px;
+    margin: 8px;
+    background: #4e54c8;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 36px;
+    color: transparent;   
+    cursor: pointer;
+    border-radius: 19px;
+    user-select: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s, background 0.3s, color 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card.flipped, .card.open {
+    background: #f9f9f9; 
+    color: #333;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+#winMessage {
+    display: none;
+    color: #28a745;
+    font-size: 32px;
+    margin-top: 20px;
+    text-shadow: 1px 1px 2px #aaa;
+}
+
+    </style>
+</head>
+
+<body>
+
+<div id="gameHeader">
+    <h2>Memory Matching Game</h2>
+    <p>Moves: <span id="moves">0</span></p>
+    <p>Time: <span id="timer">0</span> seconds</p>
+</div>
+
+<div id="gameBoard"></div>
+
+<div id="winMessage">
+    <h2>Yayyyyy You Win! </h2>
+</div>
+
+<audio id="matchSound" src="match.wav"></audio>
+<audio id="wrongSound" src="nomatch.wav"></audio>
+
+
+<script src="index.js"></script>
+</body>
+</html>
